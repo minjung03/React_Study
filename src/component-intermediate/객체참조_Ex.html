@@ -1,0 +1,13 @@
+<script>
+
+let user = { name: "John", age: 20 } 
+user.name = "Sal"
+console.log(user == user) // true (객체는 참조를 비교)
+
+
+let userChange = { ...user, age:200 } 
+console.log(userChange)
+
+console.log(user == userChange) // false (내용은 같아도 다른 참조이므로 false)
+
+</script>
