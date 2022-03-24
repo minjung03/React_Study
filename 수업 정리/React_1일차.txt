@@ -1,0 +1,11 @@
+* Node.js LTS 버전으로 설치 (cmd 작업.txt 참고)
+* Visual Studio Code 설치
+
+- JSX이란 'JavaScript Xml' 줄임말로, HTML 태그와 JS 표현식을 같이 작성할 수 있도록 자바스크립트 문법을 확장시킨 것.
+- JSX이 Java Script 언어는 아님. (+@ 개념, 브라우저에서 사용할 수 있는 문법이 아님)
+- JSX는 babel 트랜스파일러에 의해서 JavaScript(*ES6)로 변환됨.
+- 컴파일러는 Java, C 등의 언어를 기계어로 변환, 트랜스파일러는 A언어를 B언어로 변환시키는 것을 뜻함.
+- React는 돔을 2개 가지고 있는데, 바꾼 것을 가상 돔에 저장했다가 실제의 돔과 비교해 차이를 찾아 수정시키는 방법으로 작동한다.
+  이때 변환시켜주는 것이 React이다. (DOM에 대한 것은 자세히 알지 못해도 괜찮다)
+
+* 파일 실행시키는 법은 Terminal -> new Terminal -> 'npm start' 작성

@@ -1,0 +1,18 @@
+[cmd 작업]
+
+- 본인 프로젝트 폴더로 이동
+cd [폴더]
+ex) cd C:\Users\ikwmjj\Documents\React
+
+- 폴더 만들기
+npx create-react-app [프로젝트 폴더 이름]
+ex) npx create-react-app study-react
+(processd? -y 누르기)
+
+- 만든 stduy-react로 이동
+cd study-react
+
+- 시작해보기
+npm start
+
+ctrl+c 두번 => 종료

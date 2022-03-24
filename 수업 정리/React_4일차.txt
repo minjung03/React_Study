@@ -1,0 +1,14 @@
+<< 실습 위주 
+<< 슬롯 머신 과제 해오기
+
+[ props.children ]
+- props의 childen 속성을 통해 문자열, 자식태그(혹은 컴포던트) 접근이 가능하다
+  
+ (활용)
+  1. function prop : jsx를 반환하는 함수를 children을 통해 전달하는 기법
+  2. render prop : render라는 속성에 함수를 전달하고 해당 함수를 내부에서 호출하는 방식
+                       (관례상 render로 지정) 
+
+
+[ defaultPropsprops ]
+- props 값이 전달되지 않았을 때 사용할 기본 props 값을 지정하기 위해 defaultPropsprops 속성 설정
