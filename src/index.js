@@ -1,5 +1,6 @@
-import './component-intermediate/counter-demo';
+import './component-intermediate/manipulate-list';
 
+// import './component-intermediate/counter-demo';
 // import './component-intermediate/counter-with-hook-caveat';
 // import './component-intermediate/state-study-with-inner-object';
 //import './component-intermediate/sol_user_profile';
