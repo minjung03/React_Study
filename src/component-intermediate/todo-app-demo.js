@@ -2,7 +2,13 @@ import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 
 // 코드 이해하기
-const TodoItem = function({ todo: { completed, text }, idx, handleTodoStatusToggle, handleTodoRemove }) {
+
+// 개별 TODO 항목 출력
+const TodoItem = function({ 
+    todo: { completed, text }, 
+    idx, 
+    handleTodoStatusToggle, handleTodoRemove }) {
+
     return (
         <div>
             <span style={completed ? { textDecoration: 'line-through' } : null}
@@ -14,6 +20,7 @@ const TodoItem = function({ todo: { completed, text }, idx, handleTodoStatusTogg
     )
 }
 
+// TODO 리스트 출력
 const TodoList = function({ todos, handleTodoStatusToggle, handleTodoRemove }) {
     return (
         <ol>
@@ -32,6 +39,7 @@ const TodoList = function({ todos, handleTodoStatusToggle, handleTodoRemove }) {
     )
 }
 
+// 새 TODO 추가
 const TodoAdder = function({ handleTodoAdd }) {
     const [input, setInput] = useState("")
     const handleChange = (e) => setInput(e.target.value)
@@ -46,10 +54,11 @@ const TodoAdder = function({ handleTodoAdd }) {
     )
 }
 
+// 전체 앱 구성
 const TodoApp = function(props) {
     const [todos, setTodos] = useState([
-        { completed: false, text: '리액트 공부하기' },
-        { completed: true, text: 'ES6 문법 공부하기' }
+        // { completed: false, text: '리액트 공부하기' },
+        // { completed: true, text: 'ES6 문법 공부하기' }
     ])
 
     const handleTodoAdd = newTodo => setTodos(todos => todos.concat(newTodo))
