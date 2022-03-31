@@ -2,6 +2,9 @@ import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 
 // 코드 이해하기
+// 도전) 할 일의 중요도 설정할 수 있게 해보기 (중요도 : 1) [증가][감소]X
+// 감소는 0 이하로는 불가능
+// 중요도 순에 따라 정렬
 
 // 개별 TODO 항목 출력
 const TodoItem = function({ 
