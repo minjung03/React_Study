@@ -57,8 +57,8 @@ const TodoAdder = function({ handleTodoAdd }) {
 // 전체 앱 구성
 const TodoApp = function(props) {
     const [todos, setTodos] = useState([
-        { completed: false, text: '리액트 공부하기' },
-        { completed: true, text: 'ES6 문법 공부하기' }
+        // { completed: false, text: '리액트 공부하기' },
+        // { completed: true, text: 'ES6 문법 공부하기' }
     ])
 
     const handleTodoAdd = newTodo => setTodos(todos => todos.concat(newTodo))
