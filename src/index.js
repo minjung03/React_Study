@@ -1,5 +1,9 @@
-import './use-effect-demo/use-effect-using-local-storage';
-
+import './use-effect-demo/ClickGame';
+// import './use-effect-demo/timer-demo';
+// import './use-effect-demo/use-effect-with-dom';
+// import './use-effect-demo/use-effect-unmount-deps';
+// import './use-effect-demo/use-effect-unmount';
+// import './use-effect-demo/use-effect-using-local-storage';
 // import './use-effect-demo/use-effect-deps';
 // import './use-effect-demo/use-effect-intro';
 // import './component-intermediate/todo-app-demo';
