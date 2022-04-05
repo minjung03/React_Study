@@ -1,5 +1,8 @@
-import './component-intermediate/todo-app-demo';
+import './use-effect-demo/use-effect-using-local-storage';
 
+// import './use-effect-demo/use-effect-deps';
+// import './use-effect-demo/use-effect-intro';
+// import './component-intermediate/todo-app-demo';
 // import './component-intermediate/manipulate-list';
 // import './component-intermediate/counter-demo';
 // import './component-intermediate/counter-with-hook-caveat';
