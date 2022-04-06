@@ -8,6 +8,7 @@ import ReactDOM from 'react-dom'
            버튼 누를 때마다 세터함수(setClickCount) 호출해서 1씩 추가
            버튼 누를 때마다 호출되는 함수에서 조건문 하나 넣어서 timerState.time > 0 이면 동작하게
  */
+
 const ClickGame = function(props) {
 
     const [timerState, setTimerState] = useState({
@@ -15,11 +16,11 @@ const ClickGame = function(props) {
         timeout: false
     })
 
-    const [ClickCount, setClickCount] = useState(0) // 클릭 카운터 상태 추가
+    const [clickcount, setClickCount] = useState(0) // 클릭 카운터 상태 추가
 
-    const Click = () => { // 버튼을 클릭 시 마다 setter함수 호출해 ClickCount 1씩 증가 하기
+    const click = () => { // 버튼을 클릭 시 마다 setter함수 호출해 ClickCount 1씩 증가 하기
         // 타이머가 0이 아니라면 증가하게 하는 조건문
-        if(timerState.time > 0) setClickCount(ClickCount => ClickCount + 1);
+        if(timerState.time > 0) setClickCount(clickcount => clickcount + 1);
     }
 
     useEffect(() => {
@@ -48,19 +49,20 @@ const ClickGame = function(props) {
 
     }, [])
 
+    // 중복된 코드 줄여보자!
     return (
         <div style={{border:0, padding:"10px",borderRadius:"30px", background:"#7CB7F9", textAlign:"center"}}>
             {timerState.timeout ? 
                 <div>
                     <p>게임 종료</p>
-                    <h2>당신의 기록 {ClickCount}개</h2>
-                    <p><button onClick={Click} style={{color : "white", background : "#2967D1", border : 0, borderRadius : "50px", padding:"15px"}}>Stop!</button></p>
+                    <h2>당신의 기록 {clickcount}개</h2>
+                    <p><button onClick={click} style={{color : "white", background : "#2967D1", border : 0, borderRadius : "50px", padding:"15px"}}>Stop!</button></p>
                 </div> 
             :   
                 <div>
                     <p>남은 시간 {timerState.time}초</p>
-                    <h1>{ClickCount}</h1>
-                    <p><button onClick={Click} style={{border : 0, borderRadius : "50px", padding:"15px"}}>Click!</button></p>
+                    <h1>{clickcount}</h1>
+                    <p><button onClick={click} style={{border : 0, borderRadius : "50px", padding:"15px"}}>Click!</button></p>
                 </div>}
         </div>
     )
@@ -73,7 +75,7 @@ const App = function(props) {
         <div>
             {
                 !trigger && <div>
-                    <ClickGame time={10} />
+                    <ClickGame time={5} />
                 </div>
             }
         </div>
