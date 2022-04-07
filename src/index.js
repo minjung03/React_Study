@@ -1,4 +1,12 @@
-import './use-effect-demo/ClickGame';
+import './component-advanced/use-ref-practice-form-controlled';
+
+// import './component-advanced/use-ref-practice-form';
+// import './component-advanced/uncontrolled-component';
+// import './component-advanced/reservation-form';
+// import './component-advanced/controlled-component';
+// import './component-advanced/ref-demo';
+// import './use-effect-demo/use-effect-fetch-api';
+// import './use-effect-demo/ClickGame';
 // import './use-effect-demo/timer-demo';
 // import './use-effect-demo/use-effect-with-dom';
 // import './use-effect-demo/use-effect-unmount-deps';
