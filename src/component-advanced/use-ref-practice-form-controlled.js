@@ -10,20 +10,22 @@ function Form() {
         password : ''
     })
 
+    /* 각각 handle를 만들 수도 있음
     const handleNameChage = name => setState({ ...state, name : name.target.value})
     const handleEmailChage = email => setState({ ...state, email : email.target.value})
     const handlePasswordChage = password => setState({ ...state, password : password.target.value})
+    */
 
- /*   const handleInputChange = (event) => { // controlled-component.js의 코드를 줄인 것!
+    const handleInputChange = (event) => { 
         const target = event.target;
+        const value = target.value;
         const name = target.name;
 
         setState({
             ...state,
-            [name]: name 
+            [name]: value
         });
     }
-*/
 
     const handleSubmit = e => {
         e.preventDefault()
@@ -48,15 +50,15 @@ function Form() {
         <>
             <label>
                 Name:
-                <input type="text" placeholder="name" name="name" value={state.name} onChange={handleNameChage}/>
+                <input type="text" placeholder="name" name="name" value={state.name} onChange={handleInputChange}/>
             </label>
             <label>
                 Email:
-                <input type="text" placeholder="email" name="email" value={state.email} onChange={handleEmailChage}/>
+                <input type="text" placeholder="email" name="email" value={state.email} onChange={handleInputChange}/>
             </label>
             <label>
                 Password:
-                <input type="password" placeholder="password" name="password" value={state.password} onChange={handlePasswordChage}/>
+                <input type="password" placeholder="password" name="password" value={state.password} onChange={handleInputChange}/>
             </label>
 
             <hr />
