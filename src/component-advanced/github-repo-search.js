@@ -33,10 +33,11 @@ const RepoList = (props) => {
     }
     else {
         return (
-            userinfo_item.map((repoitem) => {
-            (<RepoItem repoitem={repoitem} />)
-            console.log(repoitem.name);
-            })
+            <div>
+            {
+                userinfo_item.map((repoitem) => <RepoItem repoitem={repoitem} />)
+            }
+            </div>
         )
     }
 
@@ -65,7 +66,7 @@ const GithubSearchApp = (props) => {
             fetch(`https://api.github.com/users/${username}/repos`, { headers: { Authorization: "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" } })
             .then(res=>res.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 setUserinfos(data)
             })
         }
