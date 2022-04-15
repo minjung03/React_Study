@@ -1,6 +1,7 @@
 import React, { useState, useContext, createContext, useEffect } from "react"
-import ReactDOM from "react-dom"
+import ReactDOM, { unstable_renderSubtreeIntoContainer } from "react-dom"
 import down_arrow from "./img/down_arrow_gray.png";
+import loading_spinner from "./img/loading.png";
 
 // 미완!!
 
@@ -50,9 +51,11 @@ const RepoItem = (props) => {
 const RepoList = (props) => {
     
     // RepoList는 배열 전체를 prop 값으로 전달받아서 내부적으로 map 이용해서 각각의 RepoItem 그려주는 역할
-    
-    if(props.userinfo.length != 0){
+   
+    if(props.userinfo.length > 0){
 
+
+        console.log(props.userinfo.length)
         const pofile_image = props.userinfo[0].owner.avatar_url
 
         return (
@@ -69,10 +72,9 @@ const RepoList = (props) => {
                 
             </div>
         )
+    } else  {
+        return <p>저장소가 없습니다</p> 
     }
-    else 
-        return <p>사용자가 없습니다</p>
-    
 }
 
 const Search = ({onSubmit}) => {
@@ -104,25 +106,52 @@ const GithubSearchApp = (props) => {
 
     const [userinfos, setUserinfos] = useState([])
     const [username, setUsername] = useState(null)
+    const [error, setError] = useState(null)
+    const [isLoding, setIsLoding] = useState(false)
 
     useEffect(() => {
         if(username) {
+            setError(null)
+            setIsLoding(true)
             fetch(`https://api.github.com/users/${username}/repos`, { headers: { Authorization: "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" } })
+            .then(res => {
+                if(!res.ok) throw new Error("404");
+                else {
+                    return res
+                }
+            })
             .then(res=>res.json())
             .then(data => {
+                console.log(data)
                 setUserinfos(data)
+                if(data != null)  setIsLoding(false)
             })
+            .catch(e => {
+                setError(e)
+            })
+            
         }
     }, [username])
 
-    if(username === null) return ( 
+
+    if(error) {
+        return (
+            <div>
+                <Search onSubmit={setUsername}/>
+                <p>사용자가 존재하지 않습니다.</p>
+            </div> 
+        )
+    }
+    if(!username) {
+        return ( 
         <div>
             <Search onSubmit={setUsername}/>
-            {/*<p>사용자를 입력하세요</p>*/}
+            <p>사용자를 입력하세요</p>
         </div> 
-    )
+    )}
 
     return (
+        isLoding ? <img src={loading_spinner} style={{width:50, height:50}}/>:
             <div>
                 <Search onSubmit={setUsername} />  
                 <RepoList userinfo={userinfos}/> 
