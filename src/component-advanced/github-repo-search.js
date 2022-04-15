@@ -2,6 +2,7 @@ import React, { useState, useContext, createContext, useEffect } from "react"
 import ReactDOM, { unstable_renderSubtreeIntoContainer } from "react-dom"
 import down_arrow from "./img/down_arrow_gray.png";
 import loading_spinner from "./img/loading.png";
+import styled, { css } from 'styled-components';
 
 // 미완!!
 
@@ -16,22 +17,22 @@ const RepoItem = (props) => {
                 <thead></thead>
                     <tbody>
                     <tr>
-                        <td><hr style={{float:"left", width:600, backgroundColor:"#f0e4d6", height:9, border:0}}></hr></td>
+                        <td><Main_hr></Main_hr></td>
                     </tr>
                     <tr>
                         <td>
                             <span style={{fontSize:30, fontWeight:"bold", marginRight:10}}>
                                 {name}</span>
-                            <span style={{textAlign:"center", display:"inline-block", width:45, fontSize:13, background:"#DAB88B", borderRadius:20, color:"#ffffff", padding:5}}>
-                                {visibility}</span>
+                            <Repo_visibility>
+                                {visibility}</Repo_visibility>
                             
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <span style={{marginTop:15, marginRight:10, textAlign:"center", display:"inline-block", width:60, fontSize:13, background:"#d4d4d4", borderRadius:10, color:"#424242", padding:5}}>
+                            <Repo_branch>
                                 <img src={down_arrow} style={{textAlign:"center", marginRight:5}}/>
-                                {default_branch}</span>
+                                {default_branch}</Repo_branch>
                             <span>{description}</span>
                         </td>
                     </tr>
@@ -59,21 +60,22 @@ const RepoList = (props) => {
         const pofile_image = props.userinfo[0].owner.avatar_url
 
         return (
-            <div style={{width:1000, borderRadius:30, background:"#FDF6EC", margin:50, padding:30}}>
+            <Main_div><div>
                 <table>
                     <thead></thead>
                     <tbody>
                         <tr>
-                            <td><img style={{verticalAlign:"top", width:300, height:300, borderRadius:"70%"}} src={pofile_image}/></td>
+                            <td><Main_Img src={pofile_image}/></td>
                             <td>{props.userinfo.map((repoitem) => <RepoItem repoitem={repoitem}/>)}</td>
                         </tr>
                     </tbody>
                 </table>
                 
             </div>
+            </Main_div>
         )
     } else  {
-        return <p>저장소가 없습니다</p> 
+        return <Tag_p>저장소가 없습니다</Tag_p> 
     }
 }
 
@@ -81,18 +83,19 @@ const Search = ({onSubmit}) => {
     const [input, setInput] = useState('')
 
     return (
+        
         <div>
             <table style={{marginTop:30, marginLeft:50}}>
                 <thead></thead>
                 <tbody>
                     <tr >
                         <td >
-                            <input type="text" placeholder="User name" style={{paddingLeft:15, border:0, height:30, width:250, borderRadius:30, background:"#e9e9e9" }}
+                            <Search_input type="text" placeholder="User name" 
                                 onChange={e=>setInput(e.target.value)} value={input}/>
                         </td>
                         <td>
-                            <button style={{border:0, padding:8, width:70, height:33, marginLeft:5, borderRadius:30, background:"#B7CADB", color:"#000000"}}
-                                onClick={e=> {if(input.trim().length != 0) onSubmit(input)}}>검색</button>  
+                            <Search_Button 
+                                onClick={e=> {if(input.trim().length != 0) onSubmit(input)}}>검색</Search_Button>  
                         </td>
                     </tr>
                 </tbody>
@@ -138,7 +141,7 @@ const GithubSearchApp = (props) => {
         return (
             <div>
                 <Search onSubmit={setUsername}/>
-                <p>사용자가 존재하지 않습니다.</p>
+                <Tag_p>사용자가 존재하지 않습니다.</Tag_p>
             </div> 
         )
     }
@@ -146,7 +149,7 @@ const GithubSearchApp = (props) => {
         return ( 
         <div>
             <Search onSubmit={setUsername}/>
-            <p>사용자를 입력하세요</p>
+            <Tag_p>사용자를 입력하세요</Tag_p>
         </div> 
     )}
 
@@ -160,4 +163,76 @@ const GithubSearchApp = (props) => {
     
 }
 
+const Tag_p = styled.p`
+    margin-left : 60px
+`;
+
+const Main_div = styled.div`
+    width : 1000dp;
+    background-color : #FDF6EC;
+    border-radius : 30px;
+    margin : 50px;
+    padding: 30px;
+    
+`;
+
+const Search_input = styled.input`
+    border:0;
+    height : 30px;
+    width : 250px;
+    border-radius : 30px;
+    background-color : #e9e9e9;
+    padding-left : 15px;
+`;
+
+const Search_Button = styled.button`
+    border:0;
+    padding: 0;
+    height : 33px;
+    width : 70px;
+    margin-left : 5px;
+    border-radius : 30px;
+    background-color : #B7CADB;
+    color:#000000;
+`
+
+const Main_Img = styled.img`
+    height : 300px;
+    width : 300px;
+    border-radius : 70%;
+    vertical-align : top;
+`;
+
+const Main_hr = styled.hr`
+    float : left;
+    width : 600px;
+    background-color : #f0e4d6;
+    height : 9px;
+    border : 0;
+`;
+
+const Repo_visibility = styled.span`
+    text-align : center;
+    display : inline-block;
+    width : 45px;
+    font-size : 13px;
+    background-color : #DAB88B;
+    border-radius : 20px;
+    color : #ffffff;
+    padding : 5px;
+`;
+
+
+const Repo_branch = styled.span`
+    margin-top : 15px;
+    margin-right : 10px;
+    text-align : center;
+    display : inline-block;
+    width : 60px;
+    font-size : 13px;
+    background-color : #d4d4d4;
+    border-radius : 10px;
+    color : #424242;
+    padding : 5px;
+`
 ReactDOM.render(<GithubSearchApp />, document.getElementById("root"));
