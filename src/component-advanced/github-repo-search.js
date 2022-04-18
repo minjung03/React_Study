@@ -3,8 +3,18 @@ import ReactDOM, { unstable_renderSubtreeIntoContainer } from "react-dom"
 import down_arrow from "./img/down_arrow_gray.png";
 import loading_spinner from "./img/loading.png";
 import styled, { css } from 'styled-components';
+import "./css/skeleton.css";
+import SkeletonProfile from "./skeleton_user_repo";
 
-// 미완!!
+
+const SkeletonElement = ({type}) => {
+
+    const classes = `skeleton ${type}`;
+    return <div className={classes}></div>;
+    
+};
+export default SkeletonElement;
+
 
 const RepoItem = (props) => {
 
@@ -32,7 +42,8 @@ const RepoItem = (props) => {
                         <td>
                             <Repo_branch>
                                 <img src={down_arrow} style={{textAlign:"center", marginRight:5}}/>
-                                {default_branch}</Repo_branch>
+                                {default_branch}
+                            </Repo_branch>
                             <span>{description}</span>
                         </td>
                     </tr>
@@ -53,11 +64,11 @@ const RepoList = (props) => {
     
     // RepoList는 배열 전체를 prop 값으로 전달받아서 내부적으로 map 이용해서 각각의 RepoItem 그려주는 역할
    
-    if(props.userinfo.length > 0){
+    if(props.userRepo.length > 0){
 
 
-        console.log(props.userinfo.length)
-        const pofile_image = props.userinfo[0].owner.avatar_url
+        console.log(props.userRepo.length)
+        const pofile_image = props.userRepo[0].owner.avatar_url
 
         return (
             <Main_div><div>
@@ -66,7 +77,7 @@ const RepoList = (props) => {
                     <tbody>
                         <tr>
                             <td><Main_Img src={pofile_image}/></td>
-                            <td>{props.userinfo.map((repoitem) => <RepoItem repoitem={repoitem}/>)}</td>
+                            <td>{props.userRepo.map((repoitem) => <RepoItem repoitem={repoitem}/>)}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -107,7 +118,7 @@ const Search = ({onSubmit}) => {
 
 const GithubSearchApp = (props) => {
 
-    const [userinfos, setUserinfos] = useState([])
+    const [userRepos, setUserRepos] = useState([])
     const [username, setUsername] = useState(null)
     const [error, setError] = useState(null)
     const [isLoding, setIsLoding] = useState(false)
@@ -126,7 +137,7 @@ const GithubSearchApp = (props) => {
             .then(res=>res.json())
             .then(data => {
                 console.log(data)
-                setUserinfos(data)
+                setUserRepos(data)
                 if(data != null)  setIsLoding(false)
             })
             .catch(e => {
@@ -154,10 +165,11 @@ const GithubSearchApp = (props) => {
     )}
 
     return (
-        isLoding ? <img src={loading_spinner} style={{width:50, height:50}}/>:
+        // isLoding ? <img src={loading_spinner} style={{width:50, height:50, margin:30}}/>:
+        isLoding ? <SkeletonProfile/> :
             <div>
                 <Search onSubmit={setUsername} />  
-                <RepoList userinfo={userinfos}/> 
+                <RepoList userRepo={userRepos}/> 
             </div>
     )
     
@@ -168,7 +180,7 @@ const Tag_p = styled.p`
 `;
 
 const Main_div = styled.div`
-    width : 1000dp;
+    width : 1000px;
     background-color : #FDF6EC;
     border-radius : 30px;
     margin : 50px;

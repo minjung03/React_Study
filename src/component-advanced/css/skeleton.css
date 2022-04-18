@@ -1,0 +1,63 @@
+.skeleton {
+    background: #ddd;
+}
+#search_table {
+    margin-top :30px;
+    margin-left:50px;
+}
+.skeleton.search_box {
+    height : 30px;
+    width : 250px;
+    border-radius : 30px;
+    padding-left : 15px;
+    -webkit-animation: skeleton-gradient 1.0s infinite ease-in-out;
+    animation: skeleton-gradient 1.0s infinite ease-in-out;
+}
+.skeleton.search_btn {
+    border:0;
+    padding: 0;
+    height : 33px;
+    width : 70px;
+    margin-left : 5px;
+    border-radius : 30px;
+    -webkit-animation: skeleton-gradient 1.0s infinite ease-in-out;
+    animation: skeleton-gradient 1.0s infinite ease-in-out;
+}
+
+.skeleton.board {
+    width : 1000px;
+    height: 300px;
+    border-radius : 30px;
+    margin : 50px;
+    padding: 30px;
+    -webkit-animation: skeleton-gradient 1.0s infinite ease-in-out;
+    animation: skeleton-gradient 1.0s infinite ease-in-out;
+}
+  
+
+/* 애니메이션 결정 */
+@-webkit-keyframes skeleton-gradient { 
+    0% {
+        background-color: rgba(155, 155, 155, 0.1);
+    }
+    50% {
+        background-color: rgba(143, 143, 143, 0.3);
+    }
+
+    100% {
+        background-color: rgba(97, 97, 97, 0.1);
+    }
+}
+
+@keyframes skeleton-gradient {
+    0% {
+        background-color: rgba(155, 155, 155, 0.1);
+    }
+    50% {
+        background-color: rgba(143, 143, 143, 0.3);
+    }
+
+    100% {
+        background-color: rgba(97, 97, 97, 0.1);
+    }
+}
