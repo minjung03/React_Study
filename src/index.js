@@ -1,4 +1,17 @@
-import './component-advanced/github-repo-search';
+
+// use-reducer-demo 예제
+import './use-reducer-demo/use-reducer-counter-1';
+
+// component-styling 예제
+// import './component-styling/using-react-icons';
+// import './component-styling/using-svg';
+// import './component-styling/using-styled-components';
+// import './component-styling/using-sass';
+// import './component-styling/using-css-module';
+// import './component-styling/using-css';
+
+// github search app 예제
+// import './component-advanced/github-repo-search';
 
 // import './component-advanced/use-context-fake-login-button-intergrated';
 // import './component-advanced/use-context-fake-login-demo-app';

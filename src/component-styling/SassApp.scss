@@ -1,0 +1,6 @@
+// $을 이용하여 변수 생성 가능
+$myColor: red;
+
+h1 {
+    color: $myColor;
+}
