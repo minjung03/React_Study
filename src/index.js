@@ -1,6 +1,13 @@
+// use-callback-memo-demo 예제
+import './use-callback-memo-demo/user-manage-app';
+// import './use-callback-memo-demo/use-memo-demo';
+// import './use-callback-memo-demo/use-callback-counter-demo';
 
 // use-reducer-demo 예제
-import './use-reducer-demo/use-reducer-counter-1';
+// import './use-reducer-demo/use-reducer-todo-app-2';
+// import './use-reducer-demo/use-reducer-todo-app-1';
+// import './use-reducer-demo/use-reducer-counter-2';
+// import './use-reducer-demo/use-reducer-counter-1';
 
 // component-styling 예제
 // import './component-styling/using-react-icons';
