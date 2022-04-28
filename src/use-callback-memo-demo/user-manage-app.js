@@ -18,7 +18,7 @@ const UserManageApp = () => {
     }, [users, name, age])
 
     // useMemo 사용하여 나이 20 미만인 미성년자 수 저장
-    const minorCount = useMemo(() => {
+    const minorCount = useMemo(() => { // useMemo가 없으면 글자를 작성할 때마다 계산..
         let count = 0;
         for(const user of users){
             if(user.age < 20) count++;
