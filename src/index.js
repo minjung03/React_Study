@@ -1,5 +1,6 @@
 // use-callback-memo-demo 예제
-import './use-callback-memo-demo/user-manage-app';
+import './use-callback-memo-demo/using-react-memo';
+// import './use-callback-memo-demo/user-manage-app';
 // import './use-callback-memo-demo/use-memo-demo';
 // import './use-callback-memo-demo/use-callback-counter-demo';
 
