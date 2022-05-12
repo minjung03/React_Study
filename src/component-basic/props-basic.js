@@ -29,8 +29,6 @@ function Greeting(props) {
 
 
 
-
-
 const PersonProfile = function(props) {
     const {name, age, gender, profile } = props.person
     return (
