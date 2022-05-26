@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import ReactDOM from "react-dom";
 
+// 커스텀 훅 -> 코드 중복 최소화
 const useAsync = (asyncFunction, immediate = true) => {
     // 현재 상태(idle, pending, success, error)를 저장할 상태
     const [status, setStatus] = useState("idle");

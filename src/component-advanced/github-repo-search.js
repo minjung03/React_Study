@@ -1,7 +1,6 @@
 import React, { useState, useContext, createContext, useEffect } from "react"
 import ReactDOM, { unstable_renderSubtreeIntoContainer } from "react-dom"
 import down_arrow from "./img/down_arrow_gray.png";
-import loading_spinner from "./img/loading.png";
 import styled, { css } from 'styled-components';
 import "./css/skeleton.css";
 import SkeletonProfile from "./skeleton_user_repo";
