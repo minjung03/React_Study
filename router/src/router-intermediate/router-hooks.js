@@ -20,7 +20,6 @@ function UseLocationStudyComponent(props) {
 
     /*
         location 객체에 포함된 정보
-
         pathname : 현재 주소(path)
         search : 쿼리 스트링
         hash : 프래그먼트(해시)
@@ -61,7 +60,6 @@ function UseNavigateStudyComponent(props) {
     // v5
     history.push('/home');
     history.replace('/home');
-
     // v6
     navigate('/home');
     navigate('/home', {replace: true});
