@@ -2,5 +2,9 @@
 // import './router-basic/link-route-component'
 // import './router-basic/link-to-pass-object'
 // import './router-basic/redirect-component'
-
-import './router-intermediate/router-hooks'
+// import './router-intermediate/router-hooks'
+// import './router-intermediate/router-example'
+// import './router-intermediate/nested-route'
+// import './router-intermediate/router-example2'
+// import './router-intermediate/nested-route-in-component'
+import './router-intermediate/404page'
